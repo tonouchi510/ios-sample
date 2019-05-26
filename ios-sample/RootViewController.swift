@@ -7,19 +7,16 @@
 //
 
 import UIKit
-import Firebase
 
 class RootViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private var tableView = UITableView()
     var fruits: NSMutableArray = ["りんご", "みかん", "さくらんぼ", "なし", "すいか"]
-    var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         // Configure the page view controller and add it as a child view controller.
-        db = Firestore.firestore()
     }
     
     // セクションの数
@@ -59,15 +56,6 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBAction func FavoriteButton(_ sender: UIButton) {
-        db.collection("fruits").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
-            }
-        }
     }
     
 }
