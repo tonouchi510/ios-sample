@@ -41,6 +41,10 @@
                                                     <rect key="frame" x="314" y="6" width="46" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="FavoriteButton:" destination="703-4V-yAM" eventType="touchUpInside" id="BUd-wG-48n"/>
+                                                        <segue destination="HrP-K9-m3R" kind="show" id="Jj8-01-iP0"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57t-wf-YiX">
                                                     <rect key="frame" x="15" y="11" width="42" height="21"/>
@@ -70,7 +74,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3h-pU-vEd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-101.59999999999999" y="-243.32833583208398"/>
+            <point key="canvasLocation" x="-146" y="-343"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Jh0-oW-vj7">
+            <objects>
+                <viewController id="HrP-K9-m3R" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ECy-k5-1yQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="pui-ik-yyX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PEO-R1-dUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="674" y="-343"/>
         </scene>
     </scenes>
 </document>
