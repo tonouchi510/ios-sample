@@ -76,20 +76,33 @@
             </objects>
             <point key="canvasLocation" x="-146" y="-343"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite View Controller-->
         <scene sceneID="Jh0-oW-vj7">
             <objects>
-                <viewController id="HrP-K9-m3R" sceneMemberID="viewController">
+                <viewController id="HrP-K9-m3R" customClass="FavoriteViewController" customModule="ios_sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ECy-k5-1yQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1y-Ht-Gbk">
+                                <rect key="frame" x="16" y="40" width="343" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pui-ik-yyX"/>
                     </view>
+                    <connections>
+                        <outlet property="TitleLabel" destination="g1y-Ht-Gbk" id="Vb9-lV-v9X"/>
+                        <outlet property="titleLabel" destination="g1y-Ht-Gbk" id="p9s-g2-wJJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEO-R1-dUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="674" y="-343"/>
+            <point key="canvasLocation" x="672.79999999999995" y="-343.17841079460271"/>
         </scene>
     </scenes>
 </document>
