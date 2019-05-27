@@ -33,11 +33,10 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 for document in querySnapshot!.documents {
                     
-                    let v = document["name"] ?? ""
-                    self.favList.append(v as! String)
+                    let vs = document["name"] ?? ""
+                    self.favList.append(contentsOf: vs as! [String])
                     print(self.favList)
                     self.tableView.reloadData()
-                    print("\(document.documentID) => \(document.data())")
                 }
             }
         }
