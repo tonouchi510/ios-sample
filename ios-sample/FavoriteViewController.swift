@@ -12,14 +12,18 @@ import Firebase
 class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var titleLabel: UILabel!
-    private var tableView = UITableView()
-    var favList: NSMutableArray = []
+    @IBOutlet weak var tableView: UITableView!
+    
+    var favList: [String] = ["りんご"]
     var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+
         titleLabel.text = "お気に入り一覧"
         db = Firestore.firestore()
         
@@ -28,11 +32,16 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    self.favList.add(document.data())
+                    
+                    let v = document["name"] ?? ""
+                    self.favList.append(v as! String)
+                    print(self.favList)
+                    self.tableView.reloadData()
                     print("\(document.documentID) => \(document.data())")
                 }
             }
         }
+        
     }
     
     // セクションの数
@@ -42,7 +51,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     
     // セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return favList.count
     }
     
     // セクション
@@ -54,9 +63,8 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = favList[indexPath.row] as? String
         
-        print(cell.textLabel?.text)
+        cell.textLabel?.text = favList[indexPath.row]
         
         return cell
     }
