@@ -27,17 +27,16 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         titleLabel.text = "お気に入り一覧"
         db = Firestore.firestore()
         
-        db.collection("fruits").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
+        let docRef = db.collection("fruits").document("ほげほげ")
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let vs = document["name"] ?? ""
+                self.favList.append(contentsOf: vs as! [String])
+                print(self.favList)
+                self.tableView.reloadData()
             } else {
-                for document in querySnapshot!.documents {
-                    
-                    let vs = document["name"] ?? ""
-                    self.favList.append(contentsOf: vs as! [String])
-                    print(self.favList)
-                    self.tableView.reloadData()
-                }
+                print("Document does not exist")
             }
         }
         
